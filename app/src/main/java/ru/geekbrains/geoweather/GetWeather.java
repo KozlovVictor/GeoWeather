@@ -8,7 +8,7 @@ import retrofit2.http.Query;
 import ru.geekbrains.geoweather.model.WeatherResponse;
 
 
-public interface AccuWeather  {
+public interface GetWeather {
 
     @GET("/currentconditions/v1/{locationKey}")
     Call<List<WeatherResponse>> loadWeather(@Path("locationKey") String locKey, @Query("apikey") String ApiKey, @Query("language") String language,
