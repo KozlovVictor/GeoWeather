@@ -7,10 +7,10 @@ import android.widget.TextView;
 import ru.geekbrains.geoweather.controller.WeatherManager;
 
 public class MainActivity extends AppCompatActivity {
-    private final String OMSK = "294463";
-    private final String API_KEY = "POd2yTXgNmeTxCy1rOPd0hsD5nclsF9G";
-    private final String LANGUAGE = "ru-ru";
-    private final String DETAILS = "false";
+    private static final String OMSK = "294463";
+    private static final String API_KEY = "POd2yTXgNmeTxCy1rOPd0hsD5nclsF9G";
+    private static final String LANGUAGE = "ru-ru";
+    private static final String DETAILS = "false";
 
     TextView bigTemp;
 

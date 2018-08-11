@@ -2,6 +2,8 @@ package ru.geekbrains.geoweather.controller;
 
 import android.util.Log;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,6 +19,11 @@ public class WeatherManager implements IWeatherManager {
 
     @Override
     public void initRetrofit() {
+//        GsonBuilder gsonBuilder = new GsonBuilder();
+//        Gson gson = gsonBuilder.create();
+//        WeatherResponse[] listWeatherResponce = gson.fromJson("", WeatherResponse[].class);
+
+
         String targetUrl = BASE_URL;
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(targetUrl)
@@ -27,16 +34,16 @@ public class WeatherManager implements IWeatherManager {
 
     @Override
     public void requestRetrofit(String locationKey, String ApiKey, String language, String details) {
-        accuWeather.loadWeather(locationKey, ApiKey, language, details).enqueue(new Callback<WeatherResponse>() {
+        accuWeather.loadWeather(locationKey, ApiKey, language, details).enqueue(new Callback<List<WeatherResponse>>() {
             @Override
-            public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
-                String result = response.body().getWeatherText();
-                Log.d("temp", result);
+            public void onResponse(Call<List<WeatherResponse>> call, Response<List<WeatherResponse>> response) {
+                String result = response.body().get(0).getWeatherIcon().toString();
+//                Log.d("temp", result);
             }
 
             @Override
-            public void onFailure(Call<WeatherResponse> call, Throwable t) {
-                Log.d("temp", t.toString());
+            public void onFailure(Call<List<WeatherResponse>> call, Throwable t) {
+//                Log.d("temp", t.toString());
             }
         });
     }
