@@ -1,50 +1,43 @@
+
 package ru.geekbrains.geoweather.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 
 public class Metric {
 
-    @SerializedName("UnitType")
-    private int unitType;
-
     @SerializedName("Value")
-    private int value;
-
+    @Expose
+    private Double value;
     @SerializedName("Unit")
+    @Expose
     private String unit;
+    @SerializedName("UnitType")
+    @Expose
+    private Integer unitType;
 
-    public void setUnitType(int unitType) {
-        this.unitType = unitType;
-    }
-
-    public int getUnitType() {
-        return unitType;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public int getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setValue(Double value) {
+        this.value = value;
     }
 
     public String getUnit() {
         return unit;
     }
 
-    @Override
-    public String toString() {
-        return
-                "Metric{" +
-                        "unitType = '" + unitType + '\'' +
-                        ",value = '" + value + '\'' +
-                        ",unit = '" + unit + '\'' +
-                        "}";
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
+
+    public Integer getUnitType() {
+        return unitType;
+    }
+
+    public void setUnitType(Integer unitType) {
+        this.unitType = unitType;
+    }
+
 }

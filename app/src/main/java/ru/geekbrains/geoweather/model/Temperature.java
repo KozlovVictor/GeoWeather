@@ -1,38 +1,32 @@
+
 package ru.geekbrains.geoweather.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 
 public class Temperature {
 
     @SerializedName("Metric")
+    @Expose
     private Metric metric;
-
     @SerializedName("Imperial")
+    @Expose
     private Imperial imperial;
-
-    public void setMetric(Metric metric) {
-        this.metric = metric;
-    }
 
     public Metric getMetric() {
         return metric;
     }
 
-    public void setImperial(Imperial imperial) {
-        this.imperial = imperial;
+    public void setMetric(Metric metric) {
+        this.metric = metric;
     }
 
     public Imperial getImperial() {
         return imperial;
     }
 
-    @Override
-    public String toString() {
-        return
-                "Temperature{" +
-                        "metric = '" + metric + '\'' +
-                        ",imperial = '" + imperial + '\'' +
-                        "}";
+    public void setImperial(Imperial imperial) {
+        this.imperial = imperial;
     }
+
 }
